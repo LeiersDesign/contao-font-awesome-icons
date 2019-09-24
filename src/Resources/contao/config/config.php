@@ -7,4 +7,12 @@
  * file that was distributed with this source code.
  */
 
+$GLOBALS['BE_MOD']['contao_slider']['slider'] = [
+    'tables' => ['tl_contao_slider']
+];
+
+/**
+ * Eigenes Widget
+ */
+$GLOBALS['BE_FFL']['listWidget'] = 'LeiersDesign\\ContaoSlider\\Widget\\ListWidget';
 

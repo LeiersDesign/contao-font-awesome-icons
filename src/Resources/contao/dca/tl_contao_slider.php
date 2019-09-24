@@ -17,10 +17,10 @@ $GLOBALS['TL_DCA']['tl_contao_slider'] = [
                 'id' => 'primary'
             ]
         ],
-    /* 'onsubmit_callback' => [
-      ['tl_contao_slider', 'generateMapAlias'],
-      ],
-      'onload_callback' => [
+        'onsubmit_callback' => [
+            ['tl_contao_slider', 'generateUniqueName'],
+        ],
+    /* 'onload_callback' => [
       ['tl_contao_slider', 'showJsLibraryHint'],
       ], */
     ],
@@ -70,18 +70,13 @@ $GLOBALS['TL_DCA']['tl_contao_slider'] = [
     ],
     // Palettes
     'palettes' => [
-        '__selector__' => ['controls_zoom'],
+        //'__selector__' => ['controls_zoom'],
         'default' => 'title, alias;'
-        . 'center_address, center_country, center;'
-        . 'map_zoom;'
-        . 'map_size_width, map_size_height;'
-        . '{controls_legend}, controls_zoom;'
-        . 'fit_markers;'
-        . '{layout_legend}, map_layout;'
+        . 'mylistwizard;'
     ],
-    'subpalettes' => [
-        'controls_zoom' => 'controls_zoom_position'
-    ],
+    /* 'subpalettes' => [
+      'controls_zoom' => 'controls_zoom_position'
+      ], */
     // Fields
     'fields' => [
         'id' => [
@@ -113,11 +108,49 @@ $GLOBALS['TL_DCA']['tl_contao_slider'] = [
                 'unique' => true,
                 'maxlength' => 128,
                 'tl_class' => 'w50',
-                'disabled' => false,
+                'disabled' => true,
                 'doNotCopy' => true,
                 'rgxp' => 'alias'
             ],
             'sql' => "varchar(128) NOT NULL default ''"
         ],
+        'mylistwizard' => array
+            (
+            'label' => &$GLOBALS['TL_LANG']['tl_contao_slider']['mylistwizard'],
+            'exclude' => true,
+            'inputType' => 'listWidget',
+            'eval' => array(
+                'tl_class' => 'clr'
+            ),
+            'sql' => "blob NULL"
+        )
     ]
 ];
+
+Class tl_contao_slider extends \Contao\Backend {
+
+    function generateUniqueName(DataContainer $dc) {
+        $id = $dc->id;
+        $varValue = $dc->activeRecord->alias;
+
+        if ($varValue != NULL) {
+            return;
+        }
+
+        $uniqueName = "contao_slider_$id";
+
+        $sql = "UPDATE tl_contao_slider SET alias = '$uniqueName' WHERE id = '$id'";
+
+        $this->Database->prepare($sql)->execute();
+    }
+
+    /**
+     * Add a link to the list items import wizard
+     *
+     * @return string
+     */
+    public function listImportWizard() {
+        return ' <a href="' . $this->addToUrl('key=list') . '" title="' . specialchars($GLOBALS['TL_LANG']['MSC']['lw_import'][1]) . '" onclick="Backend.getScrollOffset()">' . Image::getHtml('tablewizard.gif', $GLOBALS['TL_LANG']['MSC']['tw_import'][0], 'style="vertical-align:text-bottom"') . '</a>';
+    }
+
+}
