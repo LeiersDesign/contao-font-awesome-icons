@@ -1,0 +1,39 @@
+{
+    "name": "leiersdesign/contao-slider",
+    "description": "Slider for Contao 4.4",
+    "keywords": [
+        "contao",
+        "leaflet",
+        "maps"
+    ],
+    "type": "contao-bundle",
+    "version": "1.0.0",
+    "homepage": "https://www.leiers-design.de",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "leiers//DESIGN",
+            "homepage": "https://www.leiers-design.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "contao/core-bundle": "^4.4"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0"
+    },
+    "conflict": {
+        "contao/core": "*",
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LeiersDesign\\ContaoLeafletMaps\\": "src/"
+        }
+    },
+    "extra": {
+        "contao-manager-plugin": "LeiersDesign\\ContaoSlider\\ContaoManager\\Plugin"
+    }
+}
