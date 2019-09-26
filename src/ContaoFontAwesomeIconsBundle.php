@@ -1,12 +1,12 @@
 <?php
 
-namespace LeiersDesign\ContaoSlider;
+namespace LeiersDesign\ContaoFontAwesomeIcons;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * This is the Bundle Class
  */
-class ContaoSliderBundle extends Bundle
+class ContaoFontAwesomeIconsBundle extends Bundle
 {
 }

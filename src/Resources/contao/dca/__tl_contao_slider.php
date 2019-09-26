@@ -72,7 +72,7 @@ $GLOBALS['TL_DCA']['tl_contao_slider'] = [
     'palettes' => [
         //'__selector__' => ['controls_zoom'],
         'default' => 'title, alias;'
-        . 'mylistwizard;'
+        . 'images;'
     ],
     /* 'subpalettes' => [
       'controls_zoom' => 'controls_zoom_position'
@@ -114,16 +114,42 @@ $GLOBALS['TL_DCA']['tl_contao_slider'] = [
             ],
             'sql' => "varchar(128) NOT NULL default ''"
         ],
-        'mylistwizard' => array
-            (
-            'label' => &$GLOBALS['TL_LANG']['tl_contao_slider']['mylistwizard'],
+        'images' => [
+            'label' => &$GLOBALS['TL_LANG']['tl_contao_slider']['images'],
             'exclude' => true,
-            'inputType' => 'listWidget',
-            'eval' => array(
-                'tl_class' => 'clr'
-            ),
+            'inputType' => 'multiColumnWizard',
+            'tl_class' => 'clr',
+            'eval' => [
+                'tl_class' => 'clr',
+                'columnFields' => [
+                    'image' => [
+                        'label' => ['Bild', 'Bild aus der Dateiverwaltung auswählen'],
+                        'inputType' => 'fileTree',
+                        'eval' => [
+                            'style' => 'width:215px;',
+                            'multiple' => false,
+                            'fieldType' => 'radio',
+                            'files' => true,
+                            'filesOnly' => true,
+                            'path' => ''
+                        ],
+                    ],
+                    'tagline' => [
+                        'label' => ['Tagline', 'Überschrift 1 auf dem Bild'],
+                        'exclude' => true,
+                        'inputType' => 'text',
+                        'eval' => ['style' => 'width:180px'],
+                    ],
+                    'subline' => [
+                        'label' => ['Subline', 'Überschrift 2 auf dem Bild'],
+                        'exclude' => true,
+                        'inputType' => 'text',
+                        'eval' => ['style' => 'width:180px'],
+                    ],
+                ],
+            ],
             'sql' => "blob NULL"
-        )
+        ]
     ]
 ];
 
@@ -142,15 +168,6 @@ Class tl_contao_slider extends \Contao\Backend {
         $sql = "UPDATE tl_contao_slider SET alias = '$uniqueName' WHERE id = '$id'";
 
         $this->Database->prepare($sql)->execute();
-    }
-
-    /**
-     * Add a link to the list items import wizard
-     *
-     * @return string
-     */
-    public function listImportWizard() {
-        return ' <a href="' . $this->addToUrl('key=list') . '" title="' . specialchars($GLOBALS['TL_LANG']['MSC']['lw_import'][1]) . '" onclick="Backend.getScrollOffset()">' . Image::getHtml('tablewizard.gif', $GLOBALS['TL_LANG']['MSC']['tw_import'][0], 'style="vertical-align:text-bottom"') . '</a>';
     }
 
 }

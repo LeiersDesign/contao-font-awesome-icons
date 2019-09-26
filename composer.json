@@ -1,6 +1,6 @@
 {
-    "name": "leiersdesign/contao-slider",
-    "description": "Slider for Contao 4.4",
+    "name": "leiersdesign/contao-font-awesome-icons",
+    "description": "Font Awesome 4.7 Icons for Contao 4.4",
     "keywords": [
         "contao",
         "leaflet",
@@ -30,10 +30,10 @@
     },
     "autoload": {
         "psr-4": {
-            "LeiersDesign\\ContaoLeafletMaps\\": "src/"
+            "LeiersDesign\\ContaoFontAwesomeIcons\\": "src/"
         }
     },
     "extra": {
-        "contao-manager-plugin": "LeiersDesign\\ContaoSlider\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "LeiersDesign\\ContaoFontAwesomeIcons\\ContaoManager\\Plugin"
     }
 }
