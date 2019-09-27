@@ -1,0 +1,24 @@
+/*
+Copyright 2019 leiers//DESIGN.
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+*/
+/* 
+    Created on : 27.09.2019, 11:20:06
+    Author     : leiers//DESIGN <info@leiers-design.de>
+*/
+
+#ctrl_font_awesome_icon_chzn .chzn-single span,
+#ctrl_font_awesome_icon_chzn .chzn-drop {
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 14px;
+    font-size: inherit;
+    text-rendering: auto;
+    padding: 7px 0;
+}
+
+#ctrl_font_awesome_icon_chzn .chzn-container .chzn-results li {
+    padding: 5px 7px;
+    font-size: 1rem;
+}

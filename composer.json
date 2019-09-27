@@ -7,7 +7,6 @@
         "maps"
     ],
     "type": "contao-bundle",
-    "version": "1.0.0",
     "homepage": "https://www.leiers-design.de",
     "license": "MIT",
     "authors": [

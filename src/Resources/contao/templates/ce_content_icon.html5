@@ -1,0 +1,49 @@
+<div class="<?= $this->class ?>" <?= $this->cssID ?>>
+    <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
+    
+    <?php if($this->link_whole_box && $this->add_icon_url): ?>
+        <?= $this->link_open ?>
+    <?php endif ?>
+    
+    <?php if($this->icon_position == 'above'): ?>
+        <?php if(!$this->link_whole_box && $this->add_icon_url): ?>
+            <?= $this->link_open ?>
+            <?= $this->icon ?>
+            <?= $this->link_close ?>
+        <?php else: ?>
+            <?= $this->icon ?>
+        <?php endif ?>
+        <?= $this->icon_text ?>
+    <?php elseif($this->icon_position == 'left'): ?>
+        <?php if(!$this->link_whole_box && $this->add_icon_url): ?>
+            <?= $this->link_open ?>
+            <?= $this->icon ?>
+            <?= $this->link_close ?>
+        <?php else: ?>
+            <?= $this->icon ?>
+        <?php endif ?>
+        <?= $this->icon_text ?>
+    <?php elseif($this->icon_position == 'right'): ?>
+        <?= $this->icon_text ?>
+        <?php if(!$this->link_whole_box && $this->add_icon_url): ?>
+            <?= $this->link_open ?>
+            <?= $this->icon ?>
+            <?= $this->link_close ?>
+        <?php else: ?>
+            <?= $this->icon ?>
+        <?php endif ?>
+    <?php else: ?>
+        <?= $this->icon_text ?>
+        <?php if(!$this->link_whole_box && $this->add_icon_url): ?>
+            <?= $this->link_open ?>
+            <?= $this->icon ?>
+            <?= $this->link_close ?>
+        <?php else: ?>
+            <?= $this->icon ?>
+        <?php endif ?>
+    <?php endif ?>
+    
+    <?php if($this->link_whole_box && $this->add_icon_url): ?>
+        <?= $this->link_close ?>
+    <?php endif ?>
+</div>
