@@ -39,10 +39,15 @@ class ContentIcon extends \ContentElement {
      * @return string
      */
     private function genBeOutput() {
+
         $this->strTemplate = 'be_wildcard';
         $this->Template = new \BackendTemplate($this->strTemplate);
         $this->Template->title = $this->headline;
-        $this->Template->wildcard = "### Font Awesome icon ###";
+        $this->Template->wildcard = sprintf('Icon: <i class="fa %s"></i> - CSS-Klasse: <b><i>%s</i></b>', $this->font_awesome_icon, $this->font_awesome_icon);
+
+        if ($this->icon_text) {
+            $this->Template->wildcard .= '<br>' . preg_replace('/((\w+\W*){'.(11-1).'}(\w+))(.*)/', '${1}', $this->icon_text);
+        }
     }
 
     /**
@@ -56,7 +61,7 @@ class ContentIcon extends \ContentElement {
         $this->Template->link_close = '</a>';
         $this->Template->icon_text = $this->generateIconText($this->icon_text, $this->icon_position);
     }
-    
+
     /**
      * 
      * @param string $strText
