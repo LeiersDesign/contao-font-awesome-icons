@@ -27,7 +27,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'add_icon_url';
 /**
  * Subpalettes
  */
-$GLOBALS['TL_DCA']['tl_content']['subpalettes']['add_icon_url'] = 'link_whole_box, icon_url, fullsize';
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['add_icon_url'] = 'link_whole_box, icon_url, fullsize, titleText';
 
 /**
  * Callbacks

@@ -54,9 +54,10 @@ class ContentIcon extends \ContentElement {
      * @return string
      */
     private function genFeOutput() {
-
+        $strTitle = ($this->titleText ? ' title="' . $this->titleText . '"' : '');
+        
         $this->Template->icon = sprintf('<i class="fa %s"></i>', $this->font_awesome_icon);
-        $this->Template->link_open = sprintf('<a href="%s"%s>', $this->icon_url, $this->returnLinkArguments($this->icon_url, $this->fullsize));
+        $this->Template->link_open = sprintf('<a href="%s"%s%s>', $this->icon_url, $this->returnLinkArguments($this->icon_url, $this->fullsize), $strTitle);
         $this->Template->link = $this->icon_url;
         $this->Template->link_close = '</a>';
         $this->Template->icon_text = $this->generateIconText($this->icon_text, $this->icon_position);

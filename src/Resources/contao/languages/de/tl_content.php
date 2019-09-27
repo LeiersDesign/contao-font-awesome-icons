@@ -24,7 +24,7 @@ $GLOBALS['TL_LANG']['tl_content']['icon_position'] = ['Icon-Position ', 'Legen S
 
 $GLOBALS['TL_LANG']['tl_content']['add_icon_url'] = ['Icon verlinken', 'Einen Link  zum Icon hinzufügen.'];
 $GLOBALS['TL_LANG']['tl_content']['link_whole_box'] = ['Gesamte Icon-Box verlinken', 'Anhaken, wenn Sie das gesamte Element verlinken möchten <i>(nicht nur das Icon)</i>.'];
-$GLOBALS['TL_LANG']['tl_content']['icon_url'] = ['Link auswählen', ''];
+$GLOBALS['TL_LANG']['tl_content']['icon_url'] = ['Link auswählen oder einfügen', ''];
 
 /**
  * Legends
